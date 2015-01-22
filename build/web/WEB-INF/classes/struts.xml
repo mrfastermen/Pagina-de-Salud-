@@ -1,0 +1,18 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+         <action name="/" class="example.HelloWorld">
+            <result>index.jsp</result>
+        </action>
+        <action name="login" class="actions.UsuarioAction" method="login">
+            <result name="redirect">/${url}</result>
+        </action>
+        <action name="consultas" class="actions.UsuarioAction">
+            <result>/pages/consultas.jsp</result>
+        </action>
+    </package>
+</struts>

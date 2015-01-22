@@ -1,0 +1,1 @@
+mensajeError({"infonom":"Nombre de Usuario Incorrecto...", "infopass":"Contraseña Incorrecta..."})

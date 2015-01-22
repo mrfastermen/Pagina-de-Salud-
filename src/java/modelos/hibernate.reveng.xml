@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="databasesalud"/>
+  <table-filter match-name="paciente"/>
+  <table-filter match-name="diagnostico"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="cita"/>
+  <table-filter match-name="medico"/>
+  <table-filter match-name="eps"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-nov-2014 16:08:54 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelos.Medico" table="medico" catalog="databasesalud">
+        <id name="idMedico" type="java.lang.Integer">
+            <column name="idMedico" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usuario" class="modelos.Usuario" fetch="select">
+            <column name="Usuario_idUsuario" not-null="true" />
+        </many-to-one>
+        <property name="especialidad" type="string">
+            <column name="especialidad" length="45" not-null="true" />
+        </property>
+        <set name="citas" table="cita" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Medico_idMedico" not-null="true" />
+            </key>
+            <one-to-many class="modelos.Cita" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-nov-2014 16:08:54 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelos.Cita" table="cita" catalog="databasesalud">
+        <id name="idCita" type="java.lang.Integer">
+            <column name="idCita" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="medico" class="modelos.Medico" fetch="select">
+            <column name="Medico_idMedico" not-null="true" />
+        </many-to-one>
+        <many-to-one name="paciente" class="modelos.Paciente" fetch="select">
+            <column name="Paciente_idPaciente" not-null="true" />
+        </many-to-one>
+        <property name="fechahora" type="timestamp">
+            <column name="fechahora" length="19" not-null="true" />
+        </property>
+        <property name="unidad" type="string">
+            <column name="unidad" length="45" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="45" not-null="true" />
+        </property>
+        <set name="diagnosticos" table="diagnostico" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Cita_idCita" not-null="true" />
+            </key>
+            <one-to-many class="modelos.Diagnostico" />
+        </set>
+    </class>
+</hibernate-mapping>

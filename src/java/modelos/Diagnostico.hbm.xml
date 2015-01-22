@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-nov-2014 16:08:54 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelos.Diagnostico" table="diagnostico" catalog="databasesalud">
+        <id name="idDiagnostico" type="java.lang.Integer">
+            <column name="idDiagnostico" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cita" class="modelos.Cita" fetch="select">
+            <column name="Cita_idCita" not-null="true" />
+        </many-to-one>
+        <property name="diagnostico" type="string">
+            <column name="diagnostico" length="65535" not-null="true" />
+        </property>
+        <property name="fechahora" type="timestamp">
+            <column name="fechahora" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
